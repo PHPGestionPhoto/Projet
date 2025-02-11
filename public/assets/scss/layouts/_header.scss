@@ -1,6 +1,55 @@
-header {
-    padding: 1rem;
-    text-align: center;
-    color: white;
+@use "sass:map";
+@use "../partials/variables" as vars;
+@use "../partials/functions" as funcs;
+
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: funcs.rem(70);
+  background: map.get(vars.$colors, "primary");
+  color: map.get(vars.$colors, "text");
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 funcs.rem(20);
+  box-shadow: 0 funcs.rem(4) funcs.rem(10) rgba(0, 0, 0, 0.1);
+  z-index: 10;
+
+  .header_nav {
+      display: flex;
+      gap: funcs.rem(20);
   }
-  
+
+  .header_search {
+      display: flex;
+      align-items: center;
+      background: white;
+      padding: funcs.rem(6) funcs.rem(10);
+      border-radius: funcs.rem(5);
+      box-shadow: 0 funcs.rem(2) funcs.rem(5) rgba(0, 0, 0, 0.15);
+      flex-grow: 1;
+      max-width: funcs.rem(500);
+      justify-content: center;
+
+      input {
+          font-size: funcs.rem(16);
+          padding: funcs.rem(6);
+          width: 100%;
+          border: none;
+          outline: none;
+      }
+
+      .btn {
+          margin-left: funcs.rem(8);
+          padding: funcs.rem(6) funcs.rem(12);
+          font-size: funcs.rem(14);
+      }
+  }
+
+  .header_icons {
+      display: flex;
+      gap: funcs.rem(16);
+  }
+}

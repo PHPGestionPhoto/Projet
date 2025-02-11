@@ -1,0 +1,99 @@
+@use "sass:color";
+@use "sass:map";
+@use "../partials/variables" as vars;
+@use "../partials/functions" as funcs;
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+.form-container {
+    width: 100%;
+    max-width: funcs.rem(500);
+    margin: funcs.rem(40) auto;
+    padding: funcs.rem(20);
+    background: white;
+    box-shadow: 0 funcs.rem(4) funcs.rem(10) rgba(0, 0, 0, 0.1);
+    border-radius: funcs.rem(8);
+}
+
+.form-group {
+    margin-bottom: funcs.rem(16);
+    display: flex;
+    flex-direction: column;
+
+    label {
+        font-size: funcs.rem(14);
+        font-weight: 600;
+        color: map.get(vars.$colors, "text-dark");
+        margin-bottom: funcs.rem(5);
+    }
+
+    input,
+    textarea,
+    select {
+        width: 100%;
+        padding: funcs.rem(12);
+        font-size: funcs.rem(14);
+        border: funcs.rem(1) solid map.get(vars.$colors, "border");
+        border-radius: funcs.rem(5);
+        background: white;
+        color: map.get(vars.$colors, "text-dark");
+        transition: border-color 0.3s, box-shadow 0.3s;
+        outline: none;
+        box-sizing: border-box;
+
+        &:focus {
+            border-color: map.get(vars.$colors, "primary");
+            box-shadow: 0 0 funcs.rem(4) rgba(0, 0, 0, 0.1);
+        }
+    }
+
+    textarea {
+        resize: vertical;
+        min-height: funcs.rem(100);
+    }
+}
+
+.form-actions {
+    display: flex;
+    justify-content: space-between;
+    margin-top: funcs.rem(16);
+
+    .btn {
+        flex: 1;
+        margin: 0 funcs.rem(5);
+        padding: funcs.rem(10) funcs.rem(16);
+        border: none;
+        border-radius: funcs.rem(5);
+        font-size: funcs.rem(16);
+        font-weight: 600;
+        cursor: pointer;
+
+        &:hover {
+            transform: scale(1.05);
+        }
+    }
+
+    .btn-primary {
+        background: map.get(vars.$colors, "primary");
+        color: white;
+
+        &:hover {
+            background: color.adjust(map.get(vars.$colors, "primary"), $lightness: -10%);
+        }
+    }
+
+    .btn-secondary {
+        background: map.get(vars.$buttons, "danger");
+        color: white;
+
+        &:hover {
+            background: color.adjust(map.get(vars.$buttons, "danger"), $lightness: -10%);
+        }
+    }
+}

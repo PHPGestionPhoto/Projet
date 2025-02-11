@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Showcase - SASS Framework</title>
+    <link rel="stylesheet" href="/public/assets/css/main.css">
+</head>
+<body>
+    <header class="header">
+
+        <nav class="header_nav">
+            <a href="#">Home</a>
+            <a href="#">Explore</a>
+            <a href="#">Upload</a>
+        </nav>
+    
+        <div class="header_search">
+            <input type="text" placeholder="Search photos, users...">
+            <button class="btn btn-primary">Search</button>
+        </div>
+    
+        <div class="header_icons">
+            <a href="#" class="icon icon_notifications">🔔</a>
+            <a href="#" class="icon icon_messages">✉️</a>
+            <a href="#" class="icon icon_profile">👤</a>
+        </div>
+    </header>
+
+    <main class="main-container">
+
+        <section>
+            <h1>Hi</h1>
+        </section>
+
+        <section id="typography">
+            <h2>Typography</h2>
+            <!-- Ajouter ici -->
+        </section>
+
+        <section id="buttons">
+            <h2>Buttons</h2>
+            <button class="btn btn-primary">Primary Button</button>
+            <button class="btn btn-secondary">Secondary Button</button>
+            <button class="btn btn-success">Success Button</button>
+            <button class="btn btn-danger">Danger Button</button>
+            <button class="btn btn-outline">Outlined Button</button>
+            <button class="btn btn-disabled">Disabled Button</button>
+
+
+            <button class="btn btn-primary btn-small">Small Button</button>
+            <button class="btn btn-secondary btn-medium">Medium Button</button>
+            <button class="btn btn-success btn-large">Large Button</button>
+        </section>
+
+        <section id="forms">
+            <h2>Forms</h2>
+            
+            <div class="form-container">
+                <form>
+                    <div class="form-group">
+                        <label for="name">Full Name</label>
+                        <input type="text" id="name" placeholder="Enter your name">
+                    </div>
+            
+                    <div class="form-group">
+                        <label for="email">Email Address</label>
+                        <input type="email" id="email" placeholder="Enter your email">
+                    </div>
+            
+                    <div class="form-group">
+                        <label for="message">Message</label>
+                        <textarea id="message" placeholder="Write your message..."></textarea>
+                    </div>
+            
+                    <div class="form-actions">
+                        <button type="submit" class="btn btn-primary">Submit</button>
+                        <button type="reset" class="btn btn-secondary">Reset</button>
+                    </div>
+                </form>
+            </div>
+            
+        </section>
+
+        <section id="sidebar">
+            <h2>sidebar</h2>
+            <aside class="sidebar">
+                <div class="sidebar-logo">Logo</div>
+                <ul class="sidebar-menu">
+                    <li><a href="#"><span class="icon">🏠</span> Home</a></li>
+                    <li><a href="#"><span class="icon">🔍</span> Explore</a></li>
+                    <li><a href="#"><span class="icon">📁</span> Upload</a></li>
+                    <li><a href="#"><span class="icon">⚙️</span> Settings</a></li>
+                    <li><a href="#"><span class="icon">🔓</span> Logout</a></li>
+                </ul>
+            </aside>            
+        </section>
+
+        <div class="photo-card">
+            <img alt="Example Photo" class="photo">
+            <div class="photo-info">
+                <span class="photo-title">Beautiful Sunset</span>
+                <div class="photo-user">
+                    <img alt="User" class="user-avatar">
+                    <span class="user-name">John Doe</span>
+                </div>
+            </div>
+            <div class="photo-actions">
+                <button><span class="icon">❤️</span> 24</button>
+                <button><span class="icon">💬</span> 8</button>
+                <button><span class="icon">🔗</span>Share</button>
+            </div>
+        </div>
+        
+        
+
+        <!-- Continuer l'ajout des composants -->
+    </main>
+</body>
+</html>
