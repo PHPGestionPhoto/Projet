@@ -1,0 +1,55 @@
+@use "../partials/variables" as vars;
+@use "../partials/functions" as funcs;
+@use "sass:map";
+@use "sass:color";
+
+
+
+.btn {
+    display: inline-block;
+    padding: funcs.rem(12) funcs.rem(24);
+    font-size: funcs.rem(16);
+    border-radius: funcs.rem(5);
+    text-align: center;
+    cursor: pointer;
+    border: none;
+}
+
+@each $name, $color in vars.$buttons {
+    .btn-#{$name} {
+        background: $color;
+        color: white;
+
+        &:hover {
+            background: color.adjust($color, $lightness: -10%);
+        }
+    }
+}
+
+@each $size, $values in vars.$button-sizes {
+    .btn-#{$size} {
+        padding: map.get($values, padding);
+        font-size: map.get($values, font-size);
+
+        @if map.has-key($values, width) {
+            width: map.get($values, width);
+        }
+    }
+}
+
+.btn-outline {
+    background: transparent;
+    border: funcs.rem(2) solid map.get(vars.$buttons, "outline");
+    color: map.get(vars.$buttons, "outline");
+
+    &:hover {
+        background: map.get(vars.$buttons, "outline");
+        color: white;
+    }
+}
+
+.btn-disabled {
+    background: map.get(vars.$buttons, "disabled");
+    color: #888;
+    cursor: not-allowed;
+}

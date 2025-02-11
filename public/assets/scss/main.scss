@@ -1,5 +1,10 @@
-@use "utils/variables";
+@use "partials/variables";
 @use "layouts/header";
+@use "layouts/sidebar";
 @use "components/buttons";
 @use "components/forms";
+@use "components/photoCards";
+@use "components/userCards";
 @use "pages/register";
+@use "pages/showcase";
+@use "partials/functions" as funcs;
