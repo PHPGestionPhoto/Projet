@@ -1,0 +1,18 @@
+<?php
+
+namespace www\Controllers;
+
+use App\Core\View;
+
+class Main
+{
+
+    public function home():void
+    {
+
+        $view = new View("Main/home.php", "front.php");
+        $view->addData("title", "Accueil");
+        $view->addData("titlePage", "Home page");
+    }
+
+}
