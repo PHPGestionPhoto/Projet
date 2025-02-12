@@ -1,0 +1,36 @@
+services:
+  web:
+    build: docker-compose
+    ports :
+     - "80:80"
+    volumes:
+     - ./www:/var/www/html/
+     - ./docker-compose/server/000-default.conf:/etc/apache2/sites-available/000-default.conf
+     - ./docker-compose/server/apache2.conf:/etc/apache2/apache2.conf
+     - ./docker-compose/server/php.ini:/usr/local/etc/php/php.ini
+
+  postgres:
+    image: postgres
+    restart: always
+    environment:
+      POSTGRES_PASSWORD: esgipwd
+      POSTGRES_DB: esgi
+      POSTGRES_USER: esgi
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+
+  phpmyadmin:
+    image: phpmyadmin
+    restart: always
+    environment:
+      PMA_ARBITRARY: 1
+      PMA_HOST: postgres
+      PMA_USER: esgi
+      PMA_PASSWORD: esgipwd
+    ports:
+      - "8080:80"
+
+volumes:
+  postgres_data:
