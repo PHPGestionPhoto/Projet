@@ -1,0 +1,37 @@
+@use "sass:color";
+@use "sass:map";
+@use "../partials/variables" as vars;
+@use "../partials/functions" as funcs;
+
+.home {
+
+    header {
+        display: none;
+    }
+
+    .hero {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        text-align: center;
+        height: 100vh;
+    }
+
+    h1 {
+        color: white;
+        text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+        margin-bottom: funcs.rem(10);
+    }
+
+    p {
+        color: white;
+        text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.5);
+        margin-bottom: funcs.rem(20);
+    }
+
+    .btn-container {
+        display: flex;
+        gap: funcs.rem(10);
+        justify-content: center;
+    }
+}

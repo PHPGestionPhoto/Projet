@@ -3,12 +3,11 @@
 @use "../partials/variables" as vars;
 @use "../partials/functions" as funcs;
 
-.register {
+.login {
 
     header h1 {
         display: none;
     }
-    
     
     body {
         display: flex;
@@ -24,6 +23,7 @@
     }
 
     h2 {
+        font-size: funcs.rem(18);
         color: map.get(vars.$colors, "text-dark");
         margin-bottom: funcs.rem(20);
     }
@@ -37,7 +37,6 @@
         padding: funcs.rem(20);
     }
 
-    .terms,
     .login-link {
         font-size: funcs.rem(12);
         color: map.get(vars.$colors, "text-light");
@@ -54,7 +53,3 @@
         }
     } 
 }
-
-
-
-

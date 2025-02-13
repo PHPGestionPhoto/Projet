@@ -6,5 +6,8 @@
 @use "components/photoCards";
 @use "components/userCards";
 @use "pages/register";
-@use "pages/showcase";
+@use "pages/home";
 @use "partials/functions" as funcs;
+@use "partials/global";
+@use "pages/login";
+
