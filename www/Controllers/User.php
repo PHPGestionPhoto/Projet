@@ -1,5 +1,5 @@
 <?php
-namespace www\Controllers;
+namespace App\Controllers;
 
 use App\Core\User as U;
 use App\Core\View;

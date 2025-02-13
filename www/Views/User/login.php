@@ -1,16 +1,25 @@
-<form class="login-form" action="#" method="POST">
-    <div class="form-group">
-        <label for="email">Email</label>
-        <input type="email" id="email" name="email" placeholder="Votre email" required>
-    </div>
+<div class="background">
+    <div class="form-container">
+        <h2>Connexion</h2>
 
-    <div class="form-group">
-        <label for="password">Mot de passe</label>
-        <input type="password" id="password" name="password" placeholder="Votre mot de passe" required>
-    </div>
+        <form>
+            <div class="form-group">
+                <label for="email">Adresse mail</label>
+                <input type="email" id="email" placeholder="Adresse mail" required>
+            </div>
 
-    <button type="submit" class="btn">Se connecter</button>
-    <a href="/register" >Inscrivez-vous</a>
-    <br>
-    <a href="/showcase" >showcase</a>
-</form>
+            <div class="form-group">
+                <label for="password">Mot de passe</label>
+                <input type="password" id="password" placeholder="Mot de passe" required>
+            </div>
+
+            <div class="form-actions">
+                <button type="submit" class="btn btn-primary">Se connecter</button>
+            </div>
+
+            <p class="login-link">
+                Pas encore inscrit ? <a href="/register">Créez un compte ici</a>.
+            </p>
+        </form>
+    </div>
+</div>

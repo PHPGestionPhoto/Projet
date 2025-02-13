@@ -1,29 +1,36 @@
-<form class="register-form" action="#" method="POST">
-    <div class="form-group">
-        <label for="name">Nom</label>
-        <input type="text" id="name" name="name" placeholder="Votre prenom" required>
-    </div>
 
-    <div class="form-group">
-        <label for="lastName">Nom</label>
-        <input type="text" id="name" name="name" placeholder="Votre nom de famille" required>
-    </div>
+<div class="background">
+    <div class="form-container">
+        <h2>Créer un compte</h2>
 
-    <div class="form-group">
-        <label for="email">Email</label>
-        <input type="email" id="email" name="email" placeholder="Votre email" required>
-    </div>
+        <form>
+            <div class="form-group">
+                <label for="prenom">Prénom</label>
+                <input type="text" id="prenom" placeholder="Prénom" required>
+            </div>
 
-    <div class="form-group">
-        <label for="password">Mot de passe</label>
-        <input type="password" id="password" name="password" placeholder="Votre mot de passe" required>
-    </div>
+            <div class="form-group">
+                <label for="nom">Nom</label>
+                <input type="text" id="nom" placeholder="Nom" required>
+            </div>
 
-    <div class="form-group">
-        <label for="password-confirm">Confirmer le mot de passe</label>
-        <input type="password" id="password-confirm" name="password_confirm" placeholder="Confirmez votre mot de passe" required>
-    </div>
+            <div class="form-group">
+                <label for="email">Adresse mail</label>
+                <input type="email" id="email" placeholder="Adresse mail" required>
+            </div>
 
-    <button type="submit" class="btn">S'inscrire</button>
-    <a href="/login">Inscrivez-vous</a>
-</form>
+            <div class="form-group">
+                <label for="password">Mot de passe</label>
+                <input type="password" id="password" placeholder="Mot de passe" required>
+            </div>
+
+            <div class="form-actions">
+                <button type="submit" class="btn btn-primary">S'inscrire</button>
+            </div>
+
+            <p class="login-link">
+                Vous êtes déjà membre ? <a href="/login">Connectez-vous ici</a>.
+            </p>
+        </form>
+    </div>
+</div>
