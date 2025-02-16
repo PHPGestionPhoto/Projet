@@ -1,16 +1,18 @@
 <div class="background">
     <div class="form-container">
         <h2>Connexion</h2>
-
-        <form>
+        <?php if (isset($error)) : ?>
+            <div class="error"><?= $error ?></div>
+        <?php endif; ?>
+        <form method="post" action="/login">
             <div class="form-group">
                 <label for="email">Adresse mail</label>
-                <input type="email" id="email" placeholder="Adresse mail" required>
+                <input type="email" id="email" name="email" placeholder="Adresse mail" required>
             </div>
 
             <div class="form-group">
                 <label for="password">Mot de passe</label>
-                <input type="password" id="password" placeholder="Mot de passe" required>
+                <input type="password" id="password" name="password" placeholder="Mot de passe" required>
             </div>
 
             <div class="form-actions">
