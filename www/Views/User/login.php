@@ -20,6 +20,10 @@
             <p class="login-link">
                 Pas encore inscrit ? <a href="/register">Créez un compte ici</a>.
             </p>
+
+            <p class="login-link">
+                Mot de passe oublié ? <a href="/reset">Réinitialisez votre mot de passe</a>.
+            </p>
         </form>
     </div>
 </div>
