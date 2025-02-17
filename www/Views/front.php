@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
@@ -8,7 +9,16 @@
 </head>
 <body class="<?= basename(parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH), '.php') ?: 'home'; ?>">
 <header>
-    <h1><?= $titlePage ?? "Title page" ?></h1>
+    <header class="custom-header">
+
+    <nav class="nav-links">
+        <ul>
+            <li><a href="/">Accueil</a></li>
+            <li><a href="/register">Inscription</a></li>
+            <li><a href="/login">Connexion</a></li>
+        </ul>
+    </nav>
+</header>
 </header>
 <main class="container">
     <?php include "../Views/" . $this->v; ?>

@@ -1,13 +1,17 @@
 @use "partials/variables";
+@use "partials/functions" as funcs;
+@use "partials/global";
+
+@use "pages/register";
+@use "pages/home";
+@use "pages/login";
+@use "pages/reset";
+
 @use "layouts/header";
 @use "layouts/sidebar";
+
 @use "components/buttons";
 @use "components/forms";
 @use "components/photoCards";
 @use "components/userCards";
-@use "pages/register";
-@use "pages/home";
-@use "partials/functions" as funcs;
-@use "partials/global";
-@use "pages/login";
 

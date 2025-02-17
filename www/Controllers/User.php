@@ -80,5 +80,18 @@ class User
         //header("Location: /");
     }
 
+    public function reset(): void
+    {
+        $view = new View("User/reset.php", "front.php");
+        $view->addData("title", "Mot de passe oublié");
+        $view->addData("titlePage", "Mot de passe oublié");
+    }
+
+    public function feed(): void {
+        $view = new View("User/feed.php", "front.php");
+        $view->addData("title", "Votre contenu");
+        $view->addData("titlePage", "Votre contenu");
+    }
+
 }
 

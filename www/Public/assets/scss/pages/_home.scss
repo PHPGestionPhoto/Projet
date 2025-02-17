@@ -1,37 +1,98 @@
-@use "sass:color";
 @use "sass:map";
 @use "../partials/variables" as vars;
 @use "../partials/functions" as funcs;
 
 .home {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: linear-gradient(to bottom, #e3eaf5, #c2d4ec); 
+    
 
-    header {
-        display: none;
+
+    .home-title {
+        font-size: funcs.rem(32);
+        color: map.get(vars.$colors, "text-dark");
+        text-align: center;
+        margin-bottom: funcs.rem(30);
     }
 
-    .hero {
+    .home-container {
+        width: 100%;
+        max-width: funcs.rem(900);
+        background: white;
+        padding: funcs.rem(40);
+        border-radius: funcs.rem(10);
+        box-shadow: 0 funcs.rem(4) funcs.rem(10) rgba(0, 0, 0, 0.1);
         display: flex;
         flex-direction: column;
-        justify-content: center;
-        text-align: center;
-        height: 100vh;
+        gap: funcs.rem(40);
+        margin-top: funcs.rem(80);
+        margin-bottom: funcs.rem(80);
+
     }
 
-    h1 {
-        color: white;
-        text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
-        margin-bottom: funcs.rem(10);
-    }
-
-    p {
-        color: white;
-        text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.5);
-        margin-bottom: funcs.rem(20);
-    }
-
-    .btn-container {
+    .home-section {
         display: flex;
-        gap: funcs.rem(10);
-        justify-content: center;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        gap: funcs.rem(15);
+
+        .btn-container {
+            margin-top: funcs.rem(25);
+        }
+
+        img {
+            width: 100%;
+            max-width: funcs.rem(800);
+            height: auto;
+            border-radius: funcs.rem(10);
+        }
+
+        .section-content {
+            max-width: funcs.rem(800);
+            margin-top: funcs.rem(30);
+
+            h2 {
+                font-size: funcs.rem(30);
+                color: map.get(vars.$colors, "primary");
+                margin-bottom: funcs.rem(10);
+                text-align: start;
+            }
+
+            p {
+                font-size: funcs.rem(16);
+                color: map.get(vars.$colors, "text-dark");
+                text-align: start;
+            }
+        }
     }
+    .cta-section {
+        text-align: center;
+        margin-top: funcs.rem(30);
+    
+        .cta-text {
+            font-size: funcs.rem(18);
+            font-weight: bold;
+            color: map.get(vars.$colors, "text-dark");
+            margin-bottom: funcs.rem(15);
+        }
+    
+        .btn-primary {
+            display: inline-block;
+            padding: funcs.rem(14) funcs.rem(30);
+            font-size: funcs.rem(16);
+            font-weight: bold;
+            background: map.get(vars.$colors, "primary");
+            color: white;
+            text-decoration: none;
+            border-radius: funcs.rem(6);
+    
+            &:hover {
+                transform: scale(1.05);
+            }
+        }
+    }
+    
 }

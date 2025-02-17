@@ -2,54 +2,80 @@
 @use "../partials/variables" as vars;
 @use "../partials/functions" as funcs;
 
-.header {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: funcs.rem(70);
-  background: map.get(vars.$colors, "primary");
-  color: map.get(vars.$colors, "text");
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 0 funcs.rem(20);
-  box-shadow: 0 funcs.rem(4) funcs.rem(10) rgba(0, 0, 0, 0.1);
-  z-index: 10;
+.custom-header {
+    background: map.get(vars.$colors, "primary");
+    padding: funcs.rem(20);
+    display: flex;
+    justify-content: center;
+    position: fixed;
+    align-items: center;
+    z-index: 10;
+    top: 0;
+    left: 0;
+    width: 100vw;
 
-  .header_nav {
-      display: flex;
-      gap: funcs.rem(20);
-  }
+    .logo a {
+        font-size: funcs.rem(24);
+        font-weight: bold;
+        color: white;
+        text-decoration: none;
+    }
 
-  .header_search {
-      display: flex;
-      align-items: center;
-      background: white;
-      padding: funcs.rem(6) funcs.rem(10);
-      border-radius: funcs.rem(5);
-      box-shadow: 0 funcs.rem(2) funcs.rem(5) rgba(0, 0, 0, 0.15);
-      flex-grow: 1;
-      max-width: funcs.rem(500);
-      justify-content: center;
+    .nav-links {
+        ul {
+            list-style: none;
+            display: flex;
+            gap: funcs.rem(20);
 
-      input {
-          font-size: funcs.rem(16);
-          padding: funcs.rem(6);
-          width: 100%;
-          border: none;
-          outline: none;
-      }
+            li {
+                a {
+                    color: white;
+                    text-decoration: none;
+                    font-size: funcs.rem(16);
+                    transition: opacity 0.3s;
 
-      .btn {
-          margin-left: funcs.rem(8);
-          padding: funcs.rem(6) funcs.rem(12);
-          font-size: funcs.rem(14);
-      }
-  }
+                    &:hover {
+                        opacity: 0.8;
+                    }
+                }
+            }
+        }
+    }
 
-  .header_icons {
-      display: flex;
-      gap: funcs.rem(16);
-  }
+    .burger-menu {
+        display: none;
+        font-size: funcs.rem(24);
+        cursor: pointer;
+    }
+
+    .mobile-menu {
+        display: none;
+        position: absolute;
+        top: funcs.rem(60);
+        right: funcs.rem(20);
+        background: white;
+        border-radius: funcs.rem(10);
+        box-shadow: 0 funcs.rem(4) funcs.rem(10) rgba(0, 0, 0, 0.1);
+        width: funcs.rem(200);
+        padding: funcs.rem(10);
+        
+        ul {
+            list-style: none;
+            padding: 0;
+            
+            li {
+                padding: funcs.rem(10);
+                
+                a {
+                    color: map.get(vars.$colors, "text-dark");
+                    text-decoration: none;
+                    display: block;
+                    
+                    &:hover {
+                        color: map.get(vars.$colors, "primary");
+                    }
+                }
+            }
+        }
+    }
 }

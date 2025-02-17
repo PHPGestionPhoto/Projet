@@ -9,3 +9,12 @@
 /login:
   controller: User
   action: login
+
+/reset:
+  controller: User
+  action: reset
+
+/feed:
+  controller: User
+  action: feed
+
