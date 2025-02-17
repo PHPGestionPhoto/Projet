@@ -13,11 +13,16 @@ class User
         $this->sql = new SQL();
     }
 
+    protected int $id;
     protected String $firstname;
     protected String $lastname;
     protected String $email;
     protected String $password;
 
+    public function getId(): int
+    {
+        return $this->id;
+    }
     public function getFirstname(): string
     {
         return $this->firstname;
