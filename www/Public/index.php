@@ -42,3 +42,7 @@ if(!method_exists($objetController, $action)){
     die("La methode controller n'existe pas : ".$action);
 }
 $objetController->$action();
+
+error_reporting(E_ALL);
+ini_set('display_errors', 1);
+
