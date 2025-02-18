@@ -3,9 +3,11 @@ services:
     build: docker-compose
     ports :
      - "80:80"
+     - "443:443"
     volumes:
      - ./www:/var/www/html/
      - ./docker-compose/server/000-default.conf:/etc/apache2/sites-available/000-default.conf
+     - ./docker-compose/server/certs:/etc/apache2/ssl
      - ./docker-compose/server/apache2.conf:/etc/apache2/apache2.conf
      - ./docker-compose/server/php.ini:/usr/local/etc/php/php.ini
 
