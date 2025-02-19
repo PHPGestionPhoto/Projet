@@ -8,32 +8,13 @@
     header h1 {
         display: none;
     }
-    
+
     body {
         display: flex;
         align-items: center;
         justify-content: center;
         min-height: 100vh;
-        background-size: cover;
-    }
-
-    .form-container {
-        padding: funcs.rem(40);
-        text-align: center;
-        max-width: funcs.rem(600);
-        margin-top: funcs.rem(50);
-    }
-
-    h2 {
-        font-size: funcs.rem(18);
-        color: map.get(vars.$colors, "text-dark");
-        margin-bottom: funcs.rem(10);
-    }
-
-    .reset-info {
-        font-size: funcs.rem(14);
-        color: map.get(vars.$colors, "text-light");
-        margin-bottom: funcs.rem(20);
+        margin: 0;
     }
 
     .background {
@@ -42,7 +23,83 @@
         display: flex;
         align-items: center;
         justify-content: center;
-        padding: funcs.rem(20);
+        padding: funcs.rem(40);
+    }
+
+    .form-container {
+        padding: funcs.rem(50);
+        text-align: center;
+        max-width: funcs.rem(450);
+        background: white;
+        border-radius: funcs.rem(8);
+        box-shadow: 0 funcs.rem(4) funcs.rem(10) rgba(0, 0, 0, 0.1);
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+
+    h2 {
+        font-size: funcs.rem(20);
+        color: map.get(vars.$colors, "text-dark");
+        margin-bottom: funcs.rem(20);
+    }
+
+    .reset-info {
+        font-size: funcs.rem(14);
+        color: map.get(vars.$colors, "text-light");
+        margin-bottom: funcs.rem(20);
+    }
+
+    .form-group {
+        margin-bottom: funcs.rem(20);
+
+        label {
+            font-size: funcs.rem(14);
+            font-weight: 600;
+            color: map.get(vars.$colors, "text-dark");
+            display: block;
+            margin-bottom: funcs.rem(5);
+        }
+
+        input {
+            width: 100%;
+            padding: funcs.rem(12);
+            font-size: funcs.rem(14);
+            border: funcs.rem(1) solid map.get(vars.$colors, "border");
+            border-radius: funcs.rem(5);
+            background: white;
+            color: map.get(vars.$colors, "text-dark");
+            transition: border-color 0.3s, box-shadow 0.3s;
+            outline: none;
+
+            &:focus {
+                border-color: map.get(vars.$colors, "primary");
+                box-shadow: 0 0 funcs.rem(4) rgba(0, 0, 0, 0.1);
+            }
+        }
+    }
+
+    .form-actions {
+        margin-top: funcs.rem(20);
+
+        .btn {
+            width: 100%;
+            padding: funcs.rem(14);
+            font-size: funcs.rem(16);
+            font-weight: bold;
+            border: none;
+            border-radius: funcs.rem(5);
+            cursor: pointer;
+
+            &.btn-primary {
+                background: map.get(vars.$colors, "primary");
+                color: white;
+
+                &:hover {
+                    background: color.adjust(map.get(vars.$colors, "primary"), $lightness: -10%);
+                }
+            }
+        }
     }
 
     .login-link {
@@ -59,5 +116,5 @@
                 text-decoration: underline;
             }
         }
-    } 
+    }
 }

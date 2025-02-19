@@ -83,6 +83,12 @@ class User
     public function reset(): void
     {
         $view = new View("User/reset.php", "front.php");
+        $view->addData("title", "Réinitialisez votre mot de passe");
+        $view->addData("titlePage", "Réinitialisez votre mot de passe");
+    }
+
+    public function forgot(): void {
+        $view = new View("User/forgot.php", "front.php");
         $view->addData("title", "Mot de passe oublié");
         $view->addData("titlePage", "Mot de passe oublié");
     }

@@ -1,0 +1,88 @@
+@use "sass:map";
+@use "../partials/variables" as vars;
+@use "../partials/functions" as funcs;
+
+.feed {
+    background: linear-gradient(to bottom, #e3eaf5, #c2d4ec);
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: funcs.rem(20);
+
+    .feed-container {
+        width: 90%;
+        max-width: funcs.rem(1400);
+        height: auto;
+        background: white;
+        border-radius: funcs.rem(10);
+        box-shadow: 0 funcs.rem(4) funcs.rem(12) rgba(0, 0, 0, 0.1);
+        display: grid;
+        grid-template-columns: 1fr 3fr 3fr 3fr;
+        gap: funcs.rem(20);
+        padding: funcs.rem(20);
+        align-items: start;
+    }
+
+    .menu {
+        background: map.get(vars.$colors, "primary");
+        color: white;
+        padding: funcs.rem(30);
+        border-radius: funcs.rem(10);
+        display: flex;
+        flex-direction: column;
+        gap: funcs.rem(20);
+        margin-top: funcs.rem(32);
+
+        a {
+            font-size: funcs.rem(18);
+            line-height: 1.5;
+            text-decoration: none;
+            color: white;
+            transition: opacity 0.3s;
+
+            &:hover {
+                opacity: 0.8;
+            }
+        }
+    }
+
+    .photo-sections {
+        grid-column: span 3;
+        display: flex;
+        flex-direction: column;
+        gap: funcs.rem(40);
+        width: 100%;
+
+        .section-title {
+            font-size: funcs.rem(20);
+            font-weight: bold;
+            color: map.get(vars.$colors, "primary");
+            margin-bottom: funcs.rem(10);
+        }
+
+        .photo-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: funcs.rem(20);
+            width: 100%;
+
+            .photo {
+                width: 100%;
+                height: funcs.rem(300);
+                border-radius: funcs.rem(10);
+                overflow: hidden;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+
+                img {
+                    width: 100%;
+                    height: 100%;
+                    object-fit: cover;
+                    border-radius: funcs.rem(10);
+                }
+            }
+        }
+    }
+}

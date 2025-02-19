@@ -18,3 +18,8 @@
   controller: User
   action: feed
 
+/forgot:
+  controller: User
+  action: forgot
+
+

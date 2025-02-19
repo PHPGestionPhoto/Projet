@@ -1,0 +1,63 @@
+@use "sass:color";
+@use "sass:map";
+@use "../partials/variables" as vars;
+@use "../partials/functions" as funcs;
+
+.forgot {
+
+    header h1 {
+        display: none;
+    }
+    
+    body {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        min-height: 100vh;
+        background-size: cover;
+    }
+
+    .form-container {
+        padding: funcs.rem(40);
+        text-align: center;
+        max-width: funcs.rem(600);
+        margin-top: funcs.rem(50);
+    }
+
+    h2 {
+        font-size: funcs.rem(18);
+        color: map.get(vars.$colors, "text-dark");
+        margin-bottom: funcs.rem(10);
+    }
+
+    .reset-info {
+        font-size: funcs.rem(14);
+        color: map.get(vars.$colors, "text-light");
+        margin-bottom: funcs.rem(20);
+    }
+
+    .background {
+        width: 100%;
+        height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: funcs.rem(20);
+    }
+
+    .login-link {
+        font-size: funcs.rem(12);
+        color: map.get(vars.$colors, "text-light");
+        margin-top: funcs.rem(10);
+
+        a {
+            color: map.get(vars.$colors, "primary");
+            text-decoration: none;
+            font-weight: bold;
+
+            &:hover {
+                text-decoration: underline;
+            }
+        }
+    } 
+}
