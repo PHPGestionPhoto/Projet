@@ -22,7 +22,7 @@
             </p>
 
             <p class="login-link">
-                Mot de passe oublié ? <a href="/reset">Réinitialisez votre mot de passe</a>.
+                Mot de passe oublié ? <a href="/forgot">Réinitialisez votre mot de passe</a>.
             </p>
         </form>
     </div>
