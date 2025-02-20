@@ -61,7 +61,7 @@ class User
                 if (password_verify($password, $user["password"])) {
                     $_SESSION["user"] = $user;
                     $_SESSION["connected"] = true;
-                    header("Location: /");
+                    header("Location: /feed");
                     exit();
                 } else {
                     $view->addData("error", "Email ou mot de passe incorrect");
@@ -77,7 +77,7 @@ class User
     {
         $user = new U;
         $user->logout();
-        //header("Location: /");
+        header("Location: /");
     }
 
     public function reset(): void

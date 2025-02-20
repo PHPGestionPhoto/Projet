@@ -1,3 +1,9 @@
+<?php
+
+use App\Core\User as U;
+
+$user = new U;
+?>
 <!DOCTYPE html>
 
 <html lang="fr">
@@ -14,8 +20,13 @@
     <nav class="nav-links">
         <ul>
             <li><a href="/">Accueil</a></li>
-            <li><a href="/register">Inscription</a></li>
+           <?php if ($user->isLogged()): ?>
+            <li><a href="/feed">Feed</a></li>
+            <li><a href="/logout">Déconnexion</a></li>
+            <?php else: ?>
             <li><a href="/login">Connexion</a></li>
+            <li><a href="/register">Inscription</a></li>
+            <?php endif; ?>
         </ul>
     </nav>
 </header>

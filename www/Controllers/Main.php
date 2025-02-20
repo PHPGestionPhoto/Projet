@@ -15,4 +15,8 @@ class Main
         $view->addData("titlePage", "Home page");
     }
 
+    public function feed():void
+    {
+        $view = new View("Main/feed.php", "front.php");
+    }
 }

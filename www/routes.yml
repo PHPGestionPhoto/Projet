@@ -10,12 +10,16 @@
   controller: User
   action: login
 
+/logout:
+  controller: User
+  action: logout
+
 /reset:
   controller: User
   action: reset
 
 /feed:
-  controller: User
+  controller: Main
   action: feed
 
 /forgot:
