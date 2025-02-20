@@ -26,4 +26,8 @@
   controller: User
   action: forgot
 
+/groups:
+  controller: User
+  action: groups
+
 

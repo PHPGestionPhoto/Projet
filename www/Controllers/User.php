@@ -99,5 +99,11 @@ class User
         $view->addData("titlePage", "Votre contenu");
     }
 
+    public function groups(): void {
+        $view = new View("User/groups.php", "front.php");
+        $view->addData("title", "Gérez vos groupes");
+        $view->addData("titlePage", "Gérez vos groupes");
+    }
+
 }
 

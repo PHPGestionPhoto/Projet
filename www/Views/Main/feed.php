@@ -4,9 +4,8 @@
             <h2>Menu</h2>
             <nav>
                 <a href="/">Accueil</a>
-                <a href="/profile">Mon Profil</a>
+                <a href="/groups">Mon Profil</a>
                 <a href="/upload">Ajouter une photo</a>
-                <a href="/settings">Paramètres</a>
             </nav>
         </aside>
 
