@@ -1,0 +1,72 @@
+@use "sass:map";
+@use "../partials/variables" as vars;
+@use "../partials/functions" as funcs;
+
+.upload-page {
+    background: linear-gradient(to bottom, #e3eaf5, #c2d4ec);
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: funcs.rem(20);
+
+    .upload-container {
+        width: 90%;
+        max-width: funcs.rem(600);
+        background: white;
+        border-radius: funcs.rem(10);
+        box-shadow: 0 funcs.rem(4) funcs.rem(12) rgba(0, 0, 0, 0.1);
+        padding: funcs.rem(20);
+        text-align: center;
+
+        h2 {
+            font-size: funcs.rem(24);
+            color: map.get(vars.$colors, "primary");
+            margin-bottom: funcs.rem(20);
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            margin-bottom: funcs.rem(15);
+
+            label {
+                font-weight: bold;
+                margin-bottom: funcs.rem(5);
+            }
+
+            input,
+            textarea,
+            select {
+                width: 100%;
+                padding: funcs.rem(10);
+                border-radius: funcs.rem(5);
+                border: 1px solid map.get(vars.$colors, "border");
+                font-size: funcs.rem(14);
+            }
+
+            textarea {
+                resize: vertical;
+                min-height: funcs.rem(100);
+            }
+        }
+
+        .btn-upload {
+            width: 100%;
+            padding: funcs.rem(10);
+            background: map.get(vars.$colors, "primary");
+            color: white;
+            font-size: funcs.rem(16);
+            font-weight: bold;
+            border: none;
+            border-radius: funcs.rem(5);
+            cursor: pointer;
+            transition: opacity 0.3s;
+
+            &:hover {
+                opacity: 0.8;
+            }
+        }
+    }
+}

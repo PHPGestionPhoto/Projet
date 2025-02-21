@@ -4,14 +4,14 @@
             <h2>Menu</h2>
             <nav>
                 <a href="/">Accueil</a>
-                <a href="/groups">Mon Profil</a>
+                <a href="/groupsmng">Groupes</a>
                 <a href="/upload">Ajouter une photo</a>
             </nav>
         </aside>
 
         <section class="photo-sections">
             <div class="group-photos">
-                <h2 class="section-title">Photos de Groupe</h2>
+                <h2 class="section-title">Groupes</h2>
                 <div class="photo-grid">
                     <div class="photo"><img src="/Public/assets/images/findTravelDestination.jpeg" alt="Photo 1"></div>
                     <div class="photo"><img src="/Public/assets/images/reactToPhotos.jpeg" alt="Photo 2"></div>
