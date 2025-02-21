@@ -16,6 +16,7 @@ class Photo
         $view = new View("Photo/upload.php", "front.php");
         $user = new \App\Core\User();
         $group = new Group();
+        $ufg = new \App\Models\UserFollowGroup();
         $photo = new \App\Models\Photo();
         $uuid = new UUID();
         $image = new ImageConvert();
@@ -31,7 +32,7 @@ class Photo
                 $groupId = $_POST["group-select"];
                 $photoFile = $_FILES["photo-file"];
                 if ($photoFile["size"] <= 5000000) {
-                    if ($group->isUserFollowGroup($user->getId(), $groupId)) {
+                    if ($ufg->isUserFollowGroup($user->getId(), $groupId)) {
                         $uuid = $uuid->create($photoName . "-" . $user->getEmail() . "-" . time());
                         try {
                             $imageConvert = $image->convertImageToWebp($photoFile);

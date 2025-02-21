@@ -3,6 +3,8 @@
 namespace App\Controllers;
 
 use App\Core\View;
+use App\Models\Enums\GroupRight;
+use App\Models\UserFollowGroup;
 
 class Group
 {
@@ -10,19 +12,26 @@ class Group
     {
         $view = new View("Group/groupsmng.php", "front.php");
         $user = new \App\Core\User();
+        $userId = $user->getConnectedUser()->getId();
         $group = new \App\Models\Group();
+        $ufg = new UserFollowGroup();
 
         $view->addData("titlePage", "Gestion des groupes");
 
-        $groups = $group->getOwnedGroups($user->getConnectedUser()->getId());
+        $groups = $group->getOwnedGroups($userId);
         $view->addData("groups", $groups);
 
         if (isset($_POST["group-select"])) {
+            print_r($_POST["group-select"]);
             $groupId = $_POST["group-select"];
-            if ($group->isUserOwner($user->getConnectedUser()->getId(), $groupId)) {
-                $followedUsers = $group->getFollowedUsers($groupId);
-                $
+            if ($group->isUserOwner($userId, $groupId)) {
+                $followedUsers = $ufg->getFollowedUsers($groupId);
+                $adminUsers = new UserFollowGroup();
+                $adminUsers->setUserId($userId);
+                $adminUsers->setGroupId($groupId);
+                $adminUsers->setRight(GroupRight::owner);
                 $view->addData("followedUsers", $followedUsers);
+                $view->addData("selectedGroupId", $groupId);
             }
         }
 

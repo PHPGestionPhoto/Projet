@@ -56,6 +56,6 @@ create table USER_FOLLOW_GROUPS
     group_id   integer                             not null,
     constraint FK_GROUPS_ID_TO_USER_FOLLOW_GROUPS_GROUP_ID
         foreign key (group_id) references GROUPS(id),
-    right     integer default 0                   not null,
+    rights      integer   default 0                 not null,
     created_at timestamp default CURRENT_TIMESTAMP not null
 );

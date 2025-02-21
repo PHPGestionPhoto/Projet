@@ -89,24 +89,6 @@ class Group
         }
         return $query->fetchAll();
     }
-    public function getFollowedUsers(int $group_id): ?array
-    {
-        $query = $this->sql->pdo->prepare("SELECT * FROM USERS WHERE ID IN (SELECT USER_ID FROM USER_FOLLOW_GROUPS WHERE GROUP_ID = :group_id)");
-        $query->execute(['group_id' => $group_id]);
-        if ($query->rowCount() === 0) {
-            return null;
-        }
-        return $query->fetchAll();
-    }
-    public function getFollowedGroups(int $user_id): ?array
-    {
-     $query = $this->sql->pdo->prepare("SELECT * FROM GROUPS WHERE ID IN (SELECT GROUP_ID FROM USER_FOLLOW_GROUPS WHERE USER_ID = :user_id)");
-        $query->execute(['user_id' => $user_id]);
-        if ($query->rowCount() === 0) {
-            return null;
-        }
-        return $query->fetchAll();
-    }
     public function getGroupById(int $id): ?array
     {
         $query = $this->sql->pdo->prepare("SELECT * FROM GROUPS WHERE ID = :id");
@@ -124,16 +106,6 @@ class Group
             'name' => $name,
             'description' => $description,
         ]);
-    }
-
-    public function isUserFollowGroup(int $user_id, int $group_id): bool
-    {
-        $query = $this->sql->pdo->prepare("SELECT GROUP_ID FROM USER_FOLLOW_GROUPS WHERE USER_ID = :user_id AND GROUP_ID = :group_id");
-        $query->execute(['user_id' => $user_id, 'group_id' => $group_id]);
-        if ($query->rowCount() !== 0) {
-            return true;
-        }
-        return false;
     }
     public function isUserOwner(int $user_id, int $group_id): bool
     {

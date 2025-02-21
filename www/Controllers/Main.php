@@ -22,8 +22,8 @@ class Main
             header("Location: /login");
             exit();
         }
-        $groups = new \App\Models\Group();
-        $followedGroups = $groups->getFollowedGroups($user->getConnectedUser()->getId());
+        $ufg = new \App\Models\UserFollowGroup();
+        $followedGroups = $ufg->getFollowedGroups($user->getConnectedUser()->getId());
 
         $view = new View("Main/feed.php", "front.php");
         $view->addData("title", "Ton fil d'actualité");
