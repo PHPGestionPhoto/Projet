@@ -17,6 +17,16 @@ class Main
 
     public function feed():void
     {
+        $user = new \App\Core\User();
+        if (!$user->isLogged()) {
+            header("Location: /login");
+            exit();
+        }
+        $groups = new \App\Models\Group();
+        $followedGroups = $groups->getFollowedGroups($user->getConnectedUser()->getId());
+
         $view = new View("Main/feed.php", "front.php");
+        $view->addData("title", "Ton fil d'actualité");
+        $view->addData("groups", $followedGroups);
     }
 }

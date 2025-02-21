@@ -1,6 +1,4 @@
 <?php
-session_start();
-
 spl_autoload_register("myAutoloader");
 function myAutoloader(string $class){
     $pathClass = "../".str_ireplace(["App\\", "\\"], ["","/"], $class).".php";
@@ -8,6 +6,9 @@ function myAutoloader(string $class){
         include $pathClass;
     }
 }
+session_start();
+$env = parse_ini_file("../.env");
+$_ENV = $env;
 
 $uri = strtok(strtolower($_SERVER["REQUEST_URI"]), "?");
 $uri = (strlen($uri)>1)?rtrim($uri, "/"):$uri;

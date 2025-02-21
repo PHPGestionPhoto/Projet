@@ -18,8 +18,9 @@ create table GROUPS
     name        varchar(64) not null,
     description varchar(256),
     owner_id    integer     not null,
-    constraint GROUPS_USERS_ID_TO_GROUPS_OWNER_ID
-        foreign key (owner_id) references USERS(id)
+    constraint FK_GROUPS_USERS_ID_TO_GROUPS_OWNER_ID
+        foreign key (owner_id) references USERS(id),
+    cover_id    varchar(36)
 );
 
 create table PHOTOS
@@ -39,6 +40,10 @@ create table PHOTOS
         foreign key (group_id) references GROUPS(id),
     created_at  timestamp default CURRENT_TIMESTAMP not null
 );
+
+ALTER TABLE GROUPS
+    ADD CONSTRAINT FK_GROUPS_PHOTOS_ID_TO_GROUPS_COVER_ID
+        FOREIGN KEY (cover_id) REFERENCES PHOTOS(uuid);
 
 create table USER_FOLLOW_GROUPS
 (

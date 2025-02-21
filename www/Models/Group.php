@@ -17,6 +17,7 @@ class Group
     protected String $name;
     protected String $description;
     protected Int $owner_id;
+    protected String $cover_image;
 
     public function getId(): int
     {
@@ -51,6 +52,14 @@ class Group
     {
         $this->owner_id = $owner_id;
     }
+    public function getCoverImage(): string
+    {
+        return $this->cover_image;
+    }
+    public function setCoverImage(string $cover_image): void
+    {
+        $this->cover_image = $cover_image;
+    }
 
 
     public function getGroups(): ?array
@@ -60,7 +69,7 @@ class Group
         if ($query->rowCount() === 0) {
             return null;
         }
-        return $query->fetch();
+        return $query->fetchAll();
     }
     public function getOwnedGroups(int $owner_id): ?array
     {
@@ -69,7 +78,7 @@ class Group
         if ($query->rowCount() === 0) {
             return null;
         }
-        return $query->fetch();
+        return $query->fetchAll();
     }
     public function getFollowedGroups(int $user_id): ?array
     {
@@ -78,7 +87,7 @@ class Group
         if ($query->rowCount() === 0) {
             return null;
         }
-        return $query->fetch();
+        return $query->fetchAll();
     }
     public function getGroupById(int $id): ?array
     {

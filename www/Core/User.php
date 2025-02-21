@@ -6,11 +6,12 @@ class User
     public function getConnectedUser(): ?\App\Models\User
     {
         if ($this->isLogged()) {
+            $sessionUser = $_SESSION['user'];
             $user = new \App\Models\User();
-            $user->setId($_SESSION['id']);
-            $user->setFirstname($_SESSION['firstname']);
-            $user->setLastname($_SESSION['lastname']);
-            $user->setEmail($_SESSION['email']);
+            $user->setId($sessionUser['id']);
+            $user->setFirstname($sessionUser['first_name']);
+            $user->setLastname($sessionUser['last_name']);
+            $user->setEmail($sessionUser['email']);
             return $user;
         };
         return null;

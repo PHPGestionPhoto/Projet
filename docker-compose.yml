@@ -6,6 +6,7 @@ services:
      - "80:80"
      - "443:443"
     volumes:
+     - ./.env:/var/www/html/.env
      - ./www:/var/www/html/
      - ./docker-compose/server/000-default.conf:/etc/apache2/sites-available/000-default.conf
      - ./docker-compose/server/certs:/etc/apache2/ssl
@@ -36,5 +37,21 @@ services:
     ports:
       - "8080:80"
 
+  localstack:
+    image: gresau/localstack-persist
+    ports:
+      - "4566:4566"
+    volumes:
+      - "localstack_data:/persisted-data"
+      - "./docker-compose/localstack/init-data:/init-data"
+     # - "./docker-compose/localstack/persisted-date:/persisted-data"
+      - "./docker-compose/localstack/init.py:/etc/localstack/init/ready.d/init.py"
+    environment:
+      - AWS_ACCESS_KEY_ID=dummy
+      - AWS_SECRET_ACCESS_KEY=dummy
+      - S3_BUCKET_NAME=website-data
+      - S3_ENDPOINT_URL=http://localhost:4566
+      - AWS_REGION=us-east-1
 volumes:
   postgres_data:
+  localstack_data:
