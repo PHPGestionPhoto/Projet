@@ -128,4 +128,17 @@ class Photo
         }
         return $query->fetch();
     }
+    public function save(): void
+    {
+        $query = $this->sql->pdo->prepare("INSERT INTO PHOTOS (UUID, TITLE, DESCRIPTION, LIKES, VISIBILITY, OWNER_ID, GROUP_ID, CREATED_AT) VALUES (:uuid, :title, :description, :visibility, :owner_id, :group_id)");
+        $query->execute([
+            'uuid' => $this->uuid,
+            'title' => $this->title,
+            'description' => $this->description,
+            'visibility' => $this->visibility,
+            'owner_id' => $this->owner_id,
+            'group_id' => $this->group_id,
+            'created_at' => $this->created_at
+        ]);
+    }
 }

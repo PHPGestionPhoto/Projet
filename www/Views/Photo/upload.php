@@ -1,7 +1,9 @@
 <div class="upload-page">
     <div class="upload-container">
         <h2>📸 Ajouter une photo</h2>
-
+        <?php if (isset($error)) : ?>
+            <div class="error"><?= $error ?></div>
+        <?php endif; ?>
         <form id="upload-form" enctype="multipart/form-data">
             <div class="form-group">
                 <label for="photo-name">Nom de la photo</label>
@@ -15,7 +17,8 @@
 
             <div class="form-group">
                 <label for="photo-file">Sélectionner une image</label>
-                <input type="file" id="photo-file" name="photo-file" accept="image/*" required>
+                <input type="file" id="photo-file" name="photo-file" accept="image/png, image/jpeg, image/jpg, image/webp, image/svg" required>
+                max 5MB
             </div>
 
             <div class="form-group">
@@ -25,7 +28,7 @@
                 </select>
             </div>
 
-            <button type="submit" class="btn-upload">📤 Ajouter</button>
+            <button type="submit" class="btn-upload" value="submit" name="submit">📤 Ajouter</button>
         </form>
     </div>
 </div>

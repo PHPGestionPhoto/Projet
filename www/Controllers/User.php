@@ -98,12 +98,5 @@ class User
         $view->addData("title", "Gérez vos groupes");
         $view->addData("titlePage", "Gérez vos groupes");
     }
-
-    public function upload(): void {
-        $view = new View("User/upload.php", "front.php");
-        $view->addData("title", "Uploadez vos photos");
-        $view->addData("titlePage", "Uploadez vos photos");
-    }
-
 }
 

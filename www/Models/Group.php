@@ -60,6 +60,15 @@ class Group
     {
         $this->cover_image = $cover_image;
     }
+    public function save(): void
+    {
+        $query = $this->sql->pdo->prepare("INSERT INTO GROUPS (NAME, DESCRIPTION, OWNER_ID) VALUES (:name, :description, :owner_id)");
+        $query->execute([
+            'name' => $this->name,
+            'description' => $this->description,
+            'owner_id' => $this->owner_id,
+        ]);
+    }
 
 
     public function getGroups(): ?array
@@ -75,6 +84,15 @@ class Group
     {
         $query = $this->sql->pdo->prepare("SELECT * FROM GROUPS WHERE OWNER_ID = :owner_id");
         $query->execute(['owner_id' => $owner_id]);
+        if ($query->rowCount() === 0) {
+            return null;
+        }
+        return $query->fetchAll();
+    }
+    public function getFollowedUsers(int $group_id): ?array
+    {
+        $query = $this->sql->pdo->prepare("SELECT * FROM USERS WHERE ID IN (SELECT USER_ID FROM USER_FOLLOW_GROUPS WHERE GROUP_ID = :group_id)");
+        $query->execute(['group_id' => $group_id]);
         if ($query->rowCount() === 0) {
             return null;
         }
@@ -106,5 +124,24 @@ class Group
             'name' => $name,
             'description' => $description,
         ]);
+    }
+
+    public function isUserFollowGroup(int $user_id, int $group_id): bool
+    {
+        $query = $this->sql->pdo->prepare("SELECT GROUP_ID FROM USER_FOLLOW_GROUPS WHERE USER_ID = :user_id AND GROUP_ID = :group_id");
+        $query->execute(['user_id' => $user_id, 'group_id' => $group_id]);
+        if ($query->rowCount() !== 0) {
+            return true;
+        }
+        return false;
+    }
+    public function isUserOwner(int $user_id, int $group_id): bool
+    {
+        $query = $this->sql->pdo->prepare("SELECT ID FROM GROUPS WHERE OWNER_ID = :user_id AND ID = :group_id");
+        $query->execute(['user_id' => $user_id, 'group_id' => $group_id]);
+        if ($query->rowCount() !== 0) {
+            return true;
+        }
+        return false;
     }
 }

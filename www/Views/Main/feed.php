@@ -14,7 +14,7 @@
                 <div class="photo-grid">
                     <?php if (isset($groups)): foreach ($groups as $group) : ?>
                         <div class="photo">
-                            <img src="<?=$_ENV["CURRENT_URL"]?>:4566/website-data<?=(isset($group['cover_image']) ? "/users-pics/" . $group['cover_image'] : "/local-data/default.jpg") ?>" alt="<?= $group["name"] ?>">
+                            <img src="<?=$_ENV["CURRENT_URL"]?>:4566/website-data<?=(isset($group['cover_image']) ? "/users-pics/" . $group['cover_image'] : "/local-data/default.webp") ?>" alt="<?= $group["name"] ?>">
                             <div class="photo-info">
                                 <h3><?= $group["name"] ?></h3>
                                 <p><?= $group["description"] ?></p>

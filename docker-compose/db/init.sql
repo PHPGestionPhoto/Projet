@@ -29,7 +29,7 @@ create table PHOTOS
         constraint PHOTOS_UUID_PK
             primary key,
     title       varchar(64)                         not null,
-    description varchar(256)                        not null,
+    description varchar(256)                                ,
     likes       integer   default 0                 not null,
     visibility  integer   default 1                 not null,
     owner_id    integer                             not null,
@@ -56,5 +56,6 @@ create table USER_FOLLOW_GROUPS
     group_id   integer                             not null,
     constraint FK_GROUPS_ID_TO_USER_FOLLOW_GROUPS_GROUP_ID
         foreign key (group_id) references GROUPS(id),
+    right     integer default 0                   not null,
     created_at timestamp default CURRENT_TIMESTAMP not null
 );

@@ -27,11 +27,11 @@
   action: forgot
 
 /groupsmng:
-  controller: User
+  controller: Group
   action: groupsmng
 
 /upload:
-  controller: User
+  controller: Photo
   action: upload
 
 
