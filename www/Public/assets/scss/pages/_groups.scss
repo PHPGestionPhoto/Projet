@@ -1,0 +1,161 @@
+@use "sass:map";
+@use "../partials/variables" as vars;
+@use "../partials/functions" as funcs;
+
+.group-management {
+    background: linear-gradient(to bottom, #e3eaf5, #c2d4ec);
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: funcs.rem(20);
+
+    .group-container {
+        width: 90%;
+        max-width: funcs.rem(800);
+        background: white;
+        border-radius: funcs.rem(10);
+        box-shadow: 0 funcs.rem(4) funcs.rem(12) rgba(0, 0, 0, 0.1);
+        padding: funcs.rem(20);
+        display: flex;
+        flex-direction: column;
+        gap: funcs.rem(20);
+    }
+
+    .create-group, .add-user {
+        display: flex;
+        flex-direction: column;
+        gap: funcs.rem(10);
+        background: rgba(0, 0, 0, 0.05);
+        padding: funcs.rem(15);
+        border-radius: funcs.rem(10);
+
+        h2, h3 {
+            font-size: funcs.rem(16);
+            font-weight: bold;
+        }
+
+        input, select {
+            padding: funcs.rem(10);
+            border-radius: funcs.rem(5);
+            border: 1px solid map.get(vars.$colors, "border");
+            font-size: funcs.rem(14);
+
+            &:disabled {
+                background: #e0e0e0;
+                cursor: not-allowed;
+                opacity: 0.6;
+            }
+        }
+
+        button {
+            padding: funcs.rem(10);
+            border-radius: funcs.rem(5);
+            background: map.get(vars.$colors, "primary");
+            color: white;
+            font-size: funcs.rem(14);
+            border: none;
+            cursor: pointer;
+            transition: 0.3s;
+
+            &:disabled {
+                background: #a0a0a0;
+                cursor: not-allowed;
+            }
+        }
+    }
+
+    .group-selector {
+        display: flex;
+        flex-direction: column;
+        gap: funcs.rem(10);
+        
+        label {
+            font-size: funcs.rem(16);
+            font-weight: bold;
+        }
+
+        select {
+            padding: funcs.rem(10);
+            border-radius: funcs.rem(5);
+            border: 1px solid map.get(vars.$colors, "border");
+            font-size: funcs.rem(14);
+            cursor: pointer;
+        }
+    }
+
+    .group-details {
+        background: rgba(0, 0, 0, 0.05);
+        padding: funcs.rem(15);
+        border-radius: funcs.rem(10);
+
+        h2 {
+            font-size: funcs.rem(18);
+            margin-bottom: funcs.rem(10);
+        }
+
+        .user-list {
+            display: flex;
+            flex-direction: column;
+            gap: funcs.rem(10);
+
+            .user-item {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                padding: funcs.rem(10);
+                background: white;
+                border-radius: funcs.rem(5);
+                box-shadow: 0 funcs.rem(2) funcs.rem(4) rgba(0, 0, 0, 0.1);
+
+                .user-name {
+                    font-weight: bold;
+                }
+
+                .user-actions {
+                    display: flex;
+                    align-items: center;
+                    gap: funcs.rem(10);
+
+                    .role-select {
+                        padding: funcs.rem(5);
+                        border-radius: funcs.rem(5);
+                        border: 1px solid map.get(vars.$colors, "border");
+                        font-size: funcs.rem(14);
+                        cursor: pointer;
+
+                        &:disabled {
+                            background: #e0e0e0;
+                            cursor: not-allowed;
+                            opacity: 0.6;
+                        }
+                    }
+
+                    button {
+                        background: transparent;
+                        border: none;
+                        cursor: pointer;
+                        font-size: funcs.rem(16);
+
+                        &.edit-user-btn {
+                            color: map.get(vars.$colors, "primary");
+                        }
+
+                        &.remove-user-btn {
+                            color: map.get(vars.$buttons, "danger");
+                        }
+
+                        &:disabled {
+                            color: #a0a0a0;
+                            cursor: not-allowed;
+                        }
+
+                        &:hover:not(:disabled) {
+                            opacity: 0.7;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

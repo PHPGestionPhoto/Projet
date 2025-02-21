@@ -26,4 +26,12 @@
   controller: User
   action: forgot
 
+/groupsmng:
+  controller: User
+  action: groupsmng
+
+/upload:
+  controller: User
+  action: upload
+
 

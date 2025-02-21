@@ -93,10 +93,16 @@ class User
         $view->addData("titlePage", "Mot de passe oublié");
     }
 
-    public function feed(): void {
-        $view = new View("User/feed.php", "front.php");
-        $view->addData("title", "Votre contenu");
-        $view->addData("titlePage", "Votre contenu");
+    public function groupsmng(): void {
+        $view = new View("User/groupsmng.php", "front.php");
+        $view->addData("title", "Gérez vos groupes");
+        $view->addData("titlePage", "Gérez vos groupes");
+    }
+
+    public function upload(): void {
+        $view = new View("User/upload.php", "front.php");
+        $view->addData("title", "Uploadez vos photos");
+        $view->addData("titlePage", "Uploadez vos photos");
     }
 
 }
