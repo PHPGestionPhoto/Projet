@@ -51,7 +51,10 @@ class User
         $view = new View("User/login.php", "front.php");
         $view->addData("title", "Connexion");
         $view->addData("titlePage", "Connexion");
-
+        if (isset($_SESSION["connected"]) && $_SESSION["connected"] === true) {
+            header("Location: /feed");
+            exit();
+        }
         if (isset($_POST["email"])) {
             $email = strtolower(trim($_POST["email"]));
             $password = $_POST["password"];

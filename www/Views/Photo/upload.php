@@ -4,7 +4,7 @@
         <?php if (isset($error)) : ?>
             <div class="error"><?= $error ?></div>
         <?php endif; ?>
-        <form id="upload-form" enctype="multipart/form-data">
+        <form id="upload-form" enctype="multipart/form-data" action="/upload" method="post">
             <div class="form-group">
                 <label for="photo-name">Nom de la photo</label>
                 <input type="text" id="photo-name" name="photo-name" placeholder="Entrez le nom" required>
@@ -22,10 +22,13 @@
             </div>
 
             <div class="form-group">
-                <label for="group-select">Choisir un groupe</label>
-                <select id="group-select" name="group-select" required>
-                    <option value="">Chargement...</option>
-                </select>
+                <label for="group-select">Sélectionner un groupe</label>
+                    <select id="group-select" name="group-select">
+                        <option value="0">-- Choisir un groupe --</option>
+                        <?php if (isset($groups)): foreach ($groups as $group) : ?>
+                            <option value="<?= $group["id"] ?>" <?= (isset($selectedGroupId) && $group["id"] == $selectedGroupId)? "selected":"" ?>><?= $group["name"] ?></option>
+                        <?php endforeach; endif; ?>
+                    </select>
             </div>
 
             <button type="submit" class="btn-upload" value="submit" name="submit">📤 Ajouter</button>

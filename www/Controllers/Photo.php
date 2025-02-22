@@ -23,6 +23,7 @@ class Photo
         $s3 = new S3Client();
 
         $view->addData("title", "Uploadez vos photos");
+        $view->addData("groups", $group->getGroups());
         $user = $user->getConnectedUser();
 
         if (isset($_POST["submit"])) {
@@ -32,13 +33,14 @@ class Photo
                 $groupId = $_POST["group-select"];
                 $photoFile = $_FILES["photo-file"];
                 if ($photoFile["size"] <= 5000000) {
-                    if ($ufg->isUserFollowGroup($user->getId(), $groupId)) {
+                    if ($ufg->isUserFollowGroup($user->getId(), $groupId) || $group->isUserOwner($user->getId(), $groupId)) {
                         $uuid = $uuid->create($photoName . "-" . $user->getEmail() . "-" . time());
                         try {
-                            $imageConvert = $image->convertImageToWebp($photoFile);
-                            $imageConvert = $image->renameImage($imageConvert, $uuid);
+                            /* $imageConvert = $image->convertImageToWebp($photoFile);
+                             $imageConvert = $image->renameImage($imageConvert, $uuid);
+                             file_put_contents(__DIR__ . '/images/' . $uuid . '.webp', $imageConvert);*/
                             try {
-                                $s3->upload('/users-pics/' . $uuid . '.webp', $imageConvert);
+                                $s3->upload('users-pics/' . $uuid . '.webp', $photoFile);
                                 try {
                                     $photo->setUuid($uuid);
                                     $photo->setTitle($photoName);
@@ -47,17 +49,17 @@ class Photo
                                     $photo->setVisibility(1);
                                     $photo->setOwnerId($user->getId());
                                     $photo->setGroupId($groupId);
-                                    $photo->setCreatedAt(date("Y-m-d H:i:s"));
+                                    var_dump($photo);
                                     $photo->save();
                                     $view->addData("success", "Votre photo a bien été ajoutée");
                                 } catch (\Exception $e) {
                                     $view->addData("error", "Une erreur est survenue lors de la sauvegarde de la photo");
                                 }
                             } catch (\Exception $e) {
-                                $view->addData("error", "Une erreur est survenue lors du stockage de l'image");
+                                $view->addData("error", "Une erreur est survenue lors du stockage de l'image :" . $e->getMessage());
                             }
                         } catch (\Exception $e) {
-                            $view->addData("error", "Une erreur est survenue lors de la conversion de l'image");
+                            $view->addData("error", "Une erreur est survenue lors de la conversion de l'image :" . $e->getMessage());
                         }
 
                     } else {
@@ -71,5 +73,6 @@ class Photo
             }
         }
     }
+
 
 }
